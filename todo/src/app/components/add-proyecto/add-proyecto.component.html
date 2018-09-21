@@ -1,0 +1,23 @@
+<div class="card">
+	<div class="card-content">
+		<span class="card-tittle">Nuevo Proyecto</span>
+		<form (ngSubmit)="onGuardarProyecto(formNew)" #formNew="ngForm" class="col s6">
+			<div class="row">
+				<div class="input-field col s6">
+					<input [(ngModel)]="proyecto.nombre" #nombre=ngModel type="text" name="nombre" id="nombre" placeholder="Nombre Proyecto">
+					<label for="">Nombre</label>
+				</div>
+			<div class="input-field col s6">
+				<input [(ngModel)]="proyecto.fecha_inicio" #fecha_inicio=ngModel  type="text" name="fecha_inicio" id="fecha_inicio" placeholder="(DIA/MES/AÑO)">
+				<label for="">Fecha Inicio Proyecto</label>
+			</div>
+			</div>
+			<div class="input-field col s6">
+				<input [(ngModel)]="proyecto.descripcion" #descripcion=ngModel  type="text" name="descripcion" id="descripcion" placeholder="Descripcion del proyecto">
+				<label for="">Descripcion</label>
+			</div>
+			<button type="submit" class="btn waves-effect waves-light orange right">GUARDAR
+			 <i class="material-icons">add_circle</i></button>
+		</form>
+	</div>
+</div>

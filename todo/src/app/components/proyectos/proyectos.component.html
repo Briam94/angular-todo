@@ -1,0 +1,50 @@
+<app-add-proyecto></app-add-proyecto>
+<div *ngIf="proyectos?.length > 0; else noProyectos">
+	<ul *ngFor="let proyecto of proyectos" class="collection">
+		<li class="collection-item">
+			<a class="secondary-content">
+				<i *ngIf="editState == false" (click)="editProyecto($event, proyecto)" class="material-icons">mode_edit</i>
+				<i *ngIf="editState && proyectoToEdit.id == proyecto.id" (click)="clearState()" class="material-icons">close</i>
+			</a>
+			<h2>
+			<strong>{{proyecto.nombre}}</strong>
+			</h2>
+			<br>
+			<blockquote>{{proyecto.descripcion}}</blockquote>
+			<br>
+			<span class="my_tag amber">
+				<strong>Fecha: </strong>{{proyecto.fecha_inicio}}
+			</span>
+			<hr>
+			<div *ngIf="editState && proyectoToEdit.id == proyecto.id" class="container-updateProyecto">
+				<form (ngSubmit)="onUpdateProyecto(proyecto)" class="col s6">
+					<div class="row">
+						<div class="input-field col s6">
+							<input [(ngModel)]="proyecto.nombre" #nombre=ngModel type="text" name="nombre" id="nombre" >
+							<label for="">Nombre</label>
+						</div>
+					<div class="input-field col s6">
+						<input [(ngModel)]="proyecto.fecha_inicio" #fecha_inicio=ngModel  type="text" name="fecha_inicio" id="fecha_inicio" >
+						<label for="">Fecha Inicio Proyecto</label>
+					</div>
+					</div>
+					<div class="input-field col s6">
+						<input [(ngModel)]="proyecto.descripcion" #descripcion=ngModel  type="text" name="descripcion" id="descripcion" >
+						<label for="">Descripcion</label>
+					</div>
+					<button (click)="deleteProyecto($event, proyecto)" class="btn red right">BORRAR
+						<i class="material-icons right">delete_forever</i>
+					</button>
+					<button type="submit" class="btn orange">ACTUALIZAR
+						<i class="material-icons right">save</i>
+					</button>
+				</form>
+			</div>
+		</li>
+	</ul>
+</div>
+
+<ng-template #noProyectos >
+	<hr>
+	<h5>NO EXISTEN PROYECTOS</h5>
+</ng-template>

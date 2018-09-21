@@ -1,0 +1,21 @@
+<h2> Agregar nueva tarea </h2>
+<form (ngSubmit)="addTask()">
+	<div class="form-group">
+		<div class="form-input">
+			<input type="hidden" name="id" [(ngModel)]="task.id">
+		</div>		
+	</div>
+	<div class="form-group">
+		<label for="name">Name</label>
+		<div class="form-input">
+			<input type="text" name="name" [(ngModel)]="task.name">
+		</div>		
+	</div>
+	<div class="form-group">
+		<label for="category">Category</label>
+		<div class="form-input">
+			<input type="text" name="category" [(ngModel)]="task.category">
+		</div>		
+	</div>
+	<button class="btn btn-info">{{status}}</button>
+</form>

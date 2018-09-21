@@ -1,0 +1,5 @@
+<p>
+	<app-task-list [tareas]="tareas" (onDelete)="deleteTask($event)" 
+	(onEdit) = "editTask($event)"> </app-task-list>
+	<app-task-form [task]="tarea" (onSubmit)="procesarForm($event)"></app-task-form>
+</p>
