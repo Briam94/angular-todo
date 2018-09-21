@@ -1,0 +1,19 @@
+<app-add-registro></app-add-registro>
+<div *ngIf="usuarios?.length > 0; else nousuarios">
+	<ul *ngFor="let usuario of usuarios" class="collection">
+		<li class="collection-item">
+			<h2>
+			<strong>{{usuario.nombre}}</strong>
+		</h2>
+			<br>
+			<blockquote>Contraseña: {{usuario.contrasena}}</blockquote>
+			<br>
+			<hr>
+		</li>
+	</ul>
+</div>
+
+<ng-template #nousuarios>
+	<hr>
+	<h5>NO EXISTEN USUARIOS</h5>
+</ng-template>

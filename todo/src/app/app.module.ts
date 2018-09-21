@@ -16,6 +16,8 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { AddProyectoComponent } from './components/add-proyecto/add-proyecto.component';
 
 import { ProyectoService } from './services/proyecto.service';
+import { RegistroComponent } from './components/registro/registro.component';
+import { AddRegistroComponent } from './components/add-registro/add-registro.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ProyectoService } from './services/proyecto.service';
     InicioComponent,
     HeaderComponent,
     ProyectosComponent,
-    AddProyectoComponent
+    AddProyectoComponent,
+    RegistroComponent,
+    AddRegistroComponent
   ],
   imports: [
     AppRoutingModule,
