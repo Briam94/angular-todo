@@ -8,7 +8,17 @@
 					<label for="">Nombre</label>
 				</div>
 			<div class="input-field col s6">
-				<input [(ngModel)]="proyecto.fecha_inicio" #fecha_inicio=ngModel  type="text" name="fecha_inicio" id="fecha_inicio" placeholder="(DIA/MES/AÑO)">
+				<input [(ngModel)]="proyecto.director" #director=ngModel  type="text" name="director" id="director" placeholder="Nombre director">
+				<label for="">Director del proyecto</label>
+			</div>
+			</div>
+			<div class="row">
+			<div class="input-field col s6">
+				<input [(ngModel)]="proyecto.fecha_inicio" #fecha_inicio=ngModel  type="date" name="fecha_inicio" id="fecha_inicio">
+				<label for="">Fecha Inicio Proyecto</label>
+			</div>
+			<div class="input-field col s6">
+				<input [(ngModel)]="proyecto.meses" #meses=ngModel  type="number" name="meses" id="meses" placeholder="cantidad de meses">
 				<label for="">Fecha Inicio Proyecto</label>
 			</div>
 			</div>

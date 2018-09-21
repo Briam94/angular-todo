@@ -14,6 +14,8 @@ export class AddProyectoComponent implements OnInit {
 		nombre: '',
 		descripcion: '',
 		fecha_inicio: '',
+		director: '',
+		meses: ''
 	};
 
   constructor(private proyectoService: ProyectoService) { }

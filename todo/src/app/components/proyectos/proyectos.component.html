@@ -10,10 +10,15 @@
 			<strong>{{proyecto.nombre}}</strong>
 			</h2>
 			<br>
+			<h5>Director</h5>
+			<blockquote>{{proyecto.director}}</blockquote>
+			<br>
+			<h5>Descripcion</h5>
 			<blockquote>{{proyecto.descripcion}}</blockquote>
 			<br>
 			<span class="my_tag amber">
 				<strong>Fecha: </strong>{{proyecto.fecha_inicio}}
+				<strong>Meses de duracion: </strong>{{proyecto.meses}}
 			</span>
 			<hr>
 			<div *ngIf="editState && proyectoToEdit.id == proyecto.id" class="container-updateProyecto">
@@ -24,7 +29,15 @@
 							<label for="">Nombre</label>
 						</div>
 					<div class="input-field col s6">
+						<input [(ngModel)]="proyecto.director" #director=ngModel  type="text" name="director" id="nombre director del proyecto" >
+						<label for="">Director Proyecto</label>
+					</div>
+					<div class="input-field col s6">
 						<input [(ngModel)]="proyecto.fecha_inicio" #fecha_inicio=ngModel  type="text" name="fecha_inicio" id="fecha_inicio" >
+						<label for="">Fecha Inicio Proyecto</label>
+					</div>
+					<div class="input-field col s6">
+						<input [(ngModel)]="proyecto.meses" #meses=ngModel  type="text" name="meses" id="meses" >
 						<label for="">Fecha Inicio Proyecto</label>
 					</div>
 					</div>
