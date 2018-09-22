@@ -18,6 +18,7 @@ import { AddProyectoComponent } from './components/add-proyecto/add-proyecto.com
 import { ProyectoService } from './services/proyecto.service';
 import { RegistroComponent } from './components/registro/registro.component';
 import { AddRegistroComponent } from './components/add-registro/add-registro.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AddRegistroComponent } from './components/add-registro/add-registro.com
     ProyectosComponent,
     AddProyectoComponent,
     RegistroComponent,
-    AddRegistroComponent
+    AddRegistroComponent,
+    LoginComponent
   ],
   imports: [
     AppRoutingModule,
