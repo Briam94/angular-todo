@@ -1,0 +1,91 @@
+<div class="container">
+	<app-add-proveedor></app-add-proveedor>
+	<div *ngIf="proveedores?.length > 0;else noProveedores">
+		<ul *ngFor="let proveedor of proveedores" class="collection">
+			<li class="collection-item">
+					<button (click)="deleteProveedor($event, proveedor)" class="btn red left" >
+							<i class="material-icons">delete_forever</i>
+					</button>
+				<a class="secondary-content">
+					<button class="btn blue "><i *ngIf="editState == false" (click)="editProveedor($event, proveedor)" class="material-icons ">mode_edit</i>
+					</button>
+
+					<i *ngIf="editState && proveedorToEdit.id == proveedor.id" (click)="clearState()" class="material-icons">close</i>
+				</a>
+				<br>
+				<strong><h3>{{proveedor.nombre}}</h3></strong>
+				<br>
+				<blockquote>{{proveedor.marcas}}</blockquote>
+				<br>
+				<blockquote>{{proveedor.descrpcion}}</blockquote>
+				<br>
+				<span class="my_tag blue lighten-2">
+					<strong>Numero Identificacion: </strong>{{proveedor.cedula}}
+				</span>
+				<span class="my_tag blue lighten-2">
+					<strong>Numero de Contacto: </strong>{{proveedor.num_contacto}}
+				</span><br><br>
+				<span class="my_tag blue lighten-2">
+					<strong>Fecha de registro: </strong>{{proveedor.fecha | date:'mediumDate'}}
+				</span>
+				<span class="my_tag blue lighten-2">
+					<strong>Correo Electronico: </strong>{{proveedor.correo}}
+				</span>
+				<hr>
+
+				<!-- FORMULARIO DE EDICION -->
+
+				<div *ngIf="editState && proveedorToEdit.id == proveedor.id" class="container-updateProveedor">
+								
+					<form (ngSubmit)="onUpdateProveedor(proveedor)" class="col s6">
+						<div class="row">
+							<div class="input-field col s6">
+								Numero de identificacion
+								<input [(ngModel)]="proveedor.cedula" #cedula="ngModel" type="number" name="cedula" id="cedula" >
+								<div *ngIf="cedula.touched">
+									<div >Numero de identificacion es requerido</div>
+								</div>
+							</div>
+							<div class="input-field col s6">
+								Nombre Proveedor
+								<input [(ngModel)]="proveedor.nombre" #nombre="ngModel"  type="text" name="nombre" id="nombre" >
+								<div *ngIf="nombre.touched">
+									<div >Nombre Proveedor es requerido</div>
+								</div>
+							</div>
+							<div class="input-field col s6">
+								Correo electronico
+								<input [(ngModel)]="proveedor.correo" #correo="ngModel" type="email" name="correo" id="correo">
+							</div>
+							<div class="input-field col s6">
+								Numero Telefonico de Contacto
+								<input  [(ngModel)]="proveedor.num_contacto" #num_contacto="ngModel"  type="number" name="num_contacto" id="num_contacto">
+							<div *ngIf="num_contacto.touched">
+								<div >Numero Telefonico de Contacto es requerido</div>
+							</div>
+							</div>
+							<div class="input-field col s12">
+								<p>Marcas Autorizadas</p>
+								<input  [(ngModel)]="proveedor.marcas" #marcas="ngModel"  type="text" name="marcas" id="marcas">
+							</div>
+							<div class="input-field col s12">
+								<p>Descripcion</p><br>
+								<textarea  [(ngModel)]="proveedor.descrpcion" #descrpcion="ngModel"  name="descrpcion" id="descrpcion"></textarea>
+							</div>
+							<br>
+							<button type="submit" class="btn blue right" >ACTUALIZAR
+								<i class="material-icons">save</i>
+							</button>
+						</div>
+					</form>
+				</div>
+
+			</li>
+		</ul>
+	</div>
+</div>
+<ng-template #noProveedores>
+	<hr>
+	<h5>NO EXISTEN PROVEEDORES REGISTRADOS</h5>
+	<hr>
+</ng-template>

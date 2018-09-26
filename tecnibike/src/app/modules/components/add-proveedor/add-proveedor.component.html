@@ -1,0 +1,48 @@
+<div class="card">
+	<div class="card-content" align="center">
+		<span class="card-tittle"><h3>Registrar Nuevo Proveedor</h3></span>
+		<form (ngSubmit)="onGuardarProveedor(formNew)" #formNew="ngForm" class="col s6">
+			<div class="row">
+				<div class="input-field col s6">
+					<i class="material-icons prefix">create</i>
+					<input [(ngModel)]="proveedor.cedula" #cedula="ngModel" type="number" name="cedula" id="cedula" required> 
+					<label for="cedula">Numero de identificacion</label>
+					<div *ngIf="cedula.touched">
+						<div >Numero de identificacion es requerido</div>
+					</div>
+				</div>
+				<div class="input-field col s6">
+					<i class="material-icons prefix">account_circle</i>
+					<input [(ngModel)]="proveedor.nombre" #nombre="ngModel"  type="text" name="nombre" id="nombre" >
+					<label for="nombre">Nombre Proveedor</label>
+					<div *ngIf="nombre.touched">
+						<div >Nombre Proveedor es requerido</div>
+					</div>
+				</div>
+				<div class="input-field col s6">
+					<i class="material-icons prefix">email</i>
+					<input [(ngModel)]="proveedor.correo" #correo="ngModel" type="email" name="correo" id="correo">
+					<label for="correo">Correo electronico</label>
+				</div>
+				<div class="input-field col s6">
+					<i class="material-icons prefix">call</i>
+					<input  [(ngModel)]="proveedor.num_contacto" #num_contacto="ngModel"  type="number" name="num_contacto" id="num_contacto">
+					<label for="num_contacto">Numero Telefonico de Contacto</label>
+					<div *ngIf="num_contacto.touched">
+						<div >Numero Telefonico de Contacto es requerido</div>
+					</div>
+				</div>
+				<div class="input-field col s12">
+					<p>Marcas Autorizadas</p>
+					<input  [(ngModel)]="proveedor.marcas" #marcas="ngModel"  type="text" name="marcas" id="marcas" placeholder="Trek, Merida, Scott.">
+				</div>
+				<div class="input-field col s12">
+					<p>Descripcion</p><br>
+					<textarea  [(ngModel)]="proveedor.descrpcion" #descrpcion="ngModel"  name="descrpcion" id="descrpcion" placeholder="Proporciona bielas, cadenas, chasis ...."></textarea>
+				</div>
+				<br>
+				<button type="submit" class="btn waves-effect waves-light blue right">GUARDAR<i class=" material-icons">add_circle</i></button>
+			</div>
+		</form>
+	</div>
+</div>
