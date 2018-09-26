@@ -1,0 +1,29 @@
+
+
+<form (ngSubmit)="onGuardarUsuario(formNew)" #formNew="ngForm">
+  	<div class="form-row">
+    	<div class="col">
+      		<input [(ngModel)]="usuario.id" #id="ngModel" type="text" name="num_id" class="form-control" placeholder="Numero de identificacion">
+    	</div>
+    <div class="col">
+      	<input [(ngModel)]="usuario.nombre" #nombre="ngModel"  type="text" name="nombre" class="form-control" placeholder="Nombre">
+    </div>
+	<div class="col">
+	   	<input [(ngModel)]="usuario.apellido" #apellido="ngModel"  type="text" name="apellido" class="form-control" placeholder="Apellido">
+	</div>
+  	</div>
+  	<br>
+  	<div class="form-row">
+    	<div class="col">
+      		<input [(ngModel)]="usuario.usuario" #usuario="ngModel"  type="text" name="usuario" class="form-control" placeholder="Nombre de Usuario">
+    	</div>
+    	<div class="col">
+      		<input [(ngModel)]="usuario.contrasena" #contrasena="ngModel"  type="text" name="contrasena" class="form-control" placeholder="Contraseña">
+    	</div>
+  	</div>
+	<br>
+	<div align="center">
+	  	<button type="button" class="btn btn-primary btn-lg btn-block">GUARDAR</button>
+		<button type="button" class="btn btn-secondary btn-lg btn-block">CANCELAR</button>		
+	</div>
+</form>
